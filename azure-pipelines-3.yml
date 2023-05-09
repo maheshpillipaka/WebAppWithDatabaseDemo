@@ -233,7 +233,7 @@ stages:
 
 - task: RunARMTTKTests@1
   displayName: Scan ARM templates using TTK
-    inputs:
+  inputs:
      templatelocation: '$(System.DefaultWorkingDirectory)/arm/'
       resultLocation: '$(System.DefaultWorkingDirectory)/arm/results'
       allTemplatesMain: false
@@ -243,11 +243,11 @@ stages:
         # skipTests: 'VM Images Should Use Latest Version,Resources Should Have Location'
 
 -task: PublishTestResults@2
-  displayName: Publish TTK Test Results
+   displayName: Publish TTK Test Results
     inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '$(System.DefaultWorkingDirectory)\arm\results\*-armttk.xml'
-    condition: always()
+     testResultsFormat: 'NUnit'
+     testResultsFiles: '$(System.DefaultWorkingDirectory)\arm\results\*-armttk.xml'
+     condition: always()
 
     - task: AzureCLI@2
       displayName: Preview Template Changes (What-If)
@@ -367,7 +367,7 @@ stages:
         runInParallel: false
         codeCoverageEnabled: true
 
-        
+
 - stage: Test_Stage
   displayName: Test Stage
   jobs:
